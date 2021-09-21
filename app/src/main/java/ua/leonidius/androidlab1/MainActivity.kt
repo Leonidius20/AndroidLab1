@@ -48,10 +48,13 @@ class MainActivity : AppCompatActivity() {
 
         expandButton.setOnClickListener {
             with(languagesList) {
-                visibility =
-                    if (visibility == View.INVISIBLE)
-                        View.VISIBLE
-                    else View.INVISIBLE
+                if (visibility == View.INVISIBLE) {
+                    visibility =  View.VISIBLE
+                    expandButton.setImageResource(android.R.drawable.arrow_up_float)
+                } else {
+                    visibility = View.INVISIBLE
+                    expandButton.setImageResource(android.R.drawable.arrow_down_float)
+                }
             }
         }
 
