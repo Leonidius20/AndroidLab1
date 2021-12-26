@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/inputFragment">
+
+    <fragment
+        android:id="@+id/inputFragment"
+        android:name="ua.leonidius.androidlab1.input.InputFragment"
+        tools:layout="@layout/input_fragment"
+        android:label="InputFragment" >
+        <action
+            android:id="@+id/action_inputFragment_to_outputFragment"
+            app:destination="@id/outputFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/outputFragment"
+        android:name="ua.leonidius.androidlab1.output.OutputFragment"
+        tools:layout="@layout/output_fragment"
+        android:label="OutputFragment" >
+        <argument
+            android:name="language"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_outputFragment_to_inputFragment"
+            app:destination="@id/inputFragment"
+            app:popUpTo="@id/inputFragment"
+            app:popUpToInclusive="true"/>
+    </fragment>
+</navigation>
