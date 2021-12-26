@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/inputFragment"
-        android:name="ua.leonidius.androidlab1.input.InputFragment"
+        android:name="ua.leonidius.androidlab1.ui.input.InputFragment"
         tools:layout="@layout/input_fragment"
         android:label="InputFragment" >
         <action
@@ -16,7 +16,7 @@
     </fragment>
     <fragment
         android:id="@+id/outputFragment"
-        android:name="ua.leonidius.androidlab1.output.OutputFragment"
+        android:name="ua.leonidius.androidlab1.ui.output.OutputFragment"
         tools:layout="@layout/output_fragment"
         android:label="OutputFragment" >
         <argument

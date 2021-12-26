@@ -1,7 +1,8 @@
-package ua.leonidius.androidlab1
+package ua.leonidius.androidlab1.ui
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import ua.leonidius.androidlab1.R
 
 class MainActivity : AppCompatActivity() {
 

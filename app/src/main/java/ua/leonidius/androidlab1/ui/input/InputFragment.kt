@@ -1,4 +1,4 @@
-package ua.leonidius.androidlab1.input
+package ua.leonidius.androidlab1.ui.input
 
 import android.os.Bundle
 import android.view.LayoutInflater
