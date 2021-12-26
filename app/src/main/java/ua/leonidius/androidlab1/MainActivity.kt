@@ -3,21 +3,14 @@ package ua.leonidius.androidlab1
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import android.widget.Button
-import android.widget.EditText
-import android.widget.ImageButton
-import android.widget.TextView
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import androidx.transition.Visibility
+import android.widget.*
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
 
-    private lateinit var languagesList: RecyclerView
+    private lateinit var languagesList: Spinner
     private lateinit var languageEditText: EditText
     private lateinit var okButton: Button
     private lateinit var cancelButton: Button
-    private lateinit var expandButton: ImageButton
 
     private var lastSelectedText: CharSequence = ""
 
@@ -29,13 +22,17 @@ class MainActivity : AppCompatActivity() {
         languageEditText = findViewById(R.id.language_edittext)
         okButton = findViewById(R.id.ok_button)
         cancelButton = findViewById(R.id.cancel_button)
-        expandButton = findViewById(R.id.collapse_button)
 
         languagesList.let {
-            it.adapter = RecyclerArrayAdapter(this, R.array.languages) {
-                lastSelectedText = (it as TextView).text
+            it.adapter = ArrayAdapter.createFromResource(
+                this,
+                R.array.languages,
+                android.R.layout.simple_spinner_item
+            ).apply {
+                // Specify the layout to use when the list of choices appears
+                setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
             }
-            it.layoutManager = LinearLayoutManager(this)
+            it.onItemSelectedListener = this
         }
 
         okButton.setOnClickListener {
@@ -46,18 +43,14 @@ class MainActivity : AppCompatActivity() {
             languageEditText.text.clear()
         }
 
-        expandButton.setOnClickListener {
-            with(languagesList) {
-                if (visibility == View.INVISIBLE) {
-                    visibility =  View.VISIBLE
-                    expandButton.setImageResource(android.R.drawable.arrow_up_float)
-                } else {
-                    visibility = View.INVISIBLE
-                    expandButton.setImageResource(android.R.drawable.arrow_down_float)
-                }
-            }
-        }
-
     }
+
+    override fun onItemSelected(p0: AdapterView<*>?, p1: View?, position: Int, p3: Long) {
+        lastSelectedText = resources.getStringArray(R.array.languages)[position]
+    }
+
+    override fun onNothingSelected(p0: AdapterView<*>?) {
+    }
+
 
 }

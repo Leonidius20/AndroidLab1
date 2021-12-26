@@ -7,26 +7,16 @@
     app:layout_constrainedHeight="true"
     tools:context=".MainActivity">
 
-    <ImageButton
-        android:id="@+id/collapse_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:minHeight="50dp"
-        android:minWidth="50dp"
-        android:scaleType="fitXY"
-        android:src="@android:drawable/arrow_down_float"/>
-
-    <androidx.recyclerview.widget.RecyclerView
+    <Spinner
         android:id="@+id/languages_list"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginTop="1dp"
-        android:visibility="invisible"
         app:layout_constraintBottom_toTopOf="@id/language_edittext"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/collapse_button"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintHeight_max="50dp"
         app:layout_constraintVertical_bias="0.0" />
 
 
@@ -60,6 +50,7 @@
         android:layout_marginEnd="33dp"
         android:layout_marginRight="33dp"
         android:text="@android:string/cancel"
+
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/ok_button" />
