@@ -1,5 +1,6 @@
 package ua.leonidius.androidlab1.ui.input
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -9,6 +10,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import ua.leonidius.androidlab1.R
 import ua.leonidius.androidlab1.databinding.InputFragmentBinding
+import ua.leonidius.androidlab1.ui.LogActivity
 
 class InputFragment: Fragment() {
 
@@ -37,6 +39,10 @@ class InputFragment: Fragment() {
             val language = resources.getStringArray(R.array.languages)[selectedPosition]
             val action = InputFragmentDirections.actionInputFragmentToOutputFragment(language)
             findNavController().navigate(action)
+        }
+
+        binding.logsButton.setOnClickListener {
+            startActivity(Intent(context, LogActivity::class.java))
         }
 
         return binding.root
